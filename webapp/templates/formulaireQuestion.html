@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculateur d'IMC</title>
+    <style>
+        /* Réinitialisation des styles par défaut du navigateur */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styles pour le corps de la page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ADD8E6;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        div {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styles pour le titre h1 */
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Styles pour le paragraphe p */
+        p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* Styles pour les étiquettes de formulaire */
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Styles pour les champs de saisie */
+        input[type="text"],
+        input[type="number"] {
+            width: 80%;
+            max-width: 300px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Styles pour le bouton de soumission */
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Calculateur d'indice de masse corporelle (IMC)</h1>
+        <p>Entrez vos informations pour calculer votre IMC</p>
+        <form action="/submit" method="post">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" required>
+            <br>
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" required>
+            <br>
+            <label for="taille">Taille (en cm)</label>
+            <input type="number" id="taille" name="taille" required>
+            <br>
+            <label for="poids">Poids (en kg)</label>
+            <input type="number" id="poids" name="poids" required>
+            <br>
+            <br>
+            <button type="submit">Calculer l'IMC</button>
+        </form>
+    </div>
+</body>
+</html>

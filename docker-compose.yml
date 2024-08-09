@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  webapp:
+    image: mubarak805/webapp:latest  # Utilisez le chemin complet vers votre image sur Docker Hub
+    environment:
+      - FLASK_ENV=development
+      - DB_HOST=db
+      - DB_USER=postgres
+      - DB_PASSWORD=groupe7
+      - DB_NAME=imcpersonne
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+  nginx:
+    image: mubarak805/nginx:latest  # Utilisez le chemin complet vers votre image sur Docker Hub
+    ports:
+      - "80:80"
+    depends_on:
+      - webapp
+
+  db:
+    image: mubarak805/database:latest  # Utilisez le chemin complet vers votre image sur Docker Hub
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: groupe7
+      POSTGRES_DB: imcpersonne
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
